@@ -332,7 +332,7 @@ var CustomrssbackComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    font-size: 1.3em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n    text-decoration: underline;\r\n}\r\n\r\n.positioning_description{\r\n    color:white;\r\n    font-size: 1.5em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n}\r\n\r\n.background_opaque{\r\n    position: fixed;\r\n    margin-top: 458px;\r\n    width: 647px;\r\n    height:168px;\r\n    background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,1));\r\n}"
+module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    font-size: 3.3em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 1273px;\r\n    text-decoration: underline;\r\n}\r\n\r\n.positioning_description{\r\n    color:white;\r\n    font-size: 2.5em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 1273px;\r\n}\r\n\r\n.background_opaque{\r\n    position: fixed;\r\n    \r\n    width: 1273px;\r\n    height:845px;\r\n    background-color:rgba(0, 0, 0, 0.5);\r\n}"
 
 /***/ }),
 
@@ -343,7 +343,7 @@ module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    fo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<img src=\"/uploads/{{this.feed_data[0].image_path}}\" height=\"627\" width=\"647\" style=\"position:fixed; z-index: -10;\">\n\n<div class=\"background_opaque\">\n    <div class=\"positioning_title\">{{this.feed_data[0].title}}</div>\n    <div class=\"positioning_description\">{{this.feed_data[0].description}}</div>\n</div>\n\n"
+module.exports = "<img src=\"/uploads/{{this.feed_data[0].image_path}}\" height=\"845\" width=\"1273\" style=\"position:fixed; z-index: -10;\">\n\n<div class=\"background_opaque\">\n    <div class=\"positioning_title\">{{this.feed_data[0].title}}</div>\n    <div class=\"positioning_description\">{{this.feed_data[0].description}}</div>\n</div>\n\n"
 
 /***/ }),
 

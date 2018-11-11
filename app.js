@@ -64,7 +64,7 @@ const add = require('./routes/adds');
 const d_delete = require('./routes/deletes');
 const s_set = require('./routes/sets');
 const users = require('./routes/users');
-
+const twitter = require('./routes/twitters');
 
 //use routers
 app.use('/fetchs',fetch);
@@ -72,7 +72,7 @@ app.use('/additems',add);
 app.use('/deletes',d_delete);
 app.use('/sets',s_set);
 app.use('/users',users);
-
+app.use('/twitter',twitter);
 
 app.get('/', (req,res) =>{
   res.sendFile(path.join(__dirname, 'distcustomrssfeed/index.html'));
@@ -83,6 +83,10 @@ app.get('/bemain/customrssback', (req,res) =>{
 });
 
 app.get('/customrssfront', (req,res) =>{
+  res.sendFile(path.join(__dirname, 'distcustomrssfeed/index.html'));
+});
+
+app.get('/twitterfeedmymedia', (req,res) =>{
   res.sendFile(path.join(__dirname, 'distcustomrssfeed/index.html'));
 });
 

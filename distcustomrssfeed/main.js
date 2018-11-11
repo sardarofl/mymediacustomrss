@@ -108,12 +108,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
 /* harmony import */ var _services_deletedata_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/deletedata.service */ "./src/app/services/deletedata.service.ts");
 /* harmony import */ var _services_adddata_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/adddata.service */ "./src/app/services/adddata.service.ts");
+/* harmony import */ var _components_twitterfeed_mymedia_twitterfeed_mymedia_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/twitterfeed-mymedia/twitterfeed-mymedia.component */ "./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -139,6 +141,7 @@ var appRoutes = [
             { path: '**', redirectTo: 'customrssback' }
         ]
     },
+    { path: 'twitterfeedmymedia', component: _components_twitterfeed_mymedia_twitterfeed_mymedia_component__WEBPACK_IMPORTED_MODULE_16__["TwitterfeedMymediaComponent"] },
     { path: 'customrssfront', component: _components_customrssfront_customrssfront_component__WEBPACK_IMPORTED_MODULE_6__["CustomrssfrontComponent"] },
     { path: '**', redirectTo: 'bemain' }
 ];
@@ -151,7 +154,8 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
                 _components_customrssback_customrssback_component__WEBPACK_IMPORTED_MODULE_4__["CustomrssbackComponent"],
                 _components_mainback_mainback_component__WEBPACK_IMPORTED_MODULE_5__["MainbackComponent"],
-                _components_customrssfront_customrssfront_component__WEBPACK_IMPORTED_MODULE_6__["CustomrssfrontComponent"]
+                _components_customrssfront_customrssfront_component__WEBPACK_IMPORTED_MODULE_6__["CustomrssfrontComponent"],
+                _components_twitterfeed_mymedia_twitterfeed_mymedia_component__WEBPACK_IMPORTED_MODULE_16__["TwitterfeedMymediaComponent"]
             ],
             imports: [
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(appRoutes),
@@ -328,7 +332,7 @@ var CustomrssbackComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    font-size: 1.3em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n    text-decoration: underline;\r\n}\r\n\r\n.positioning_description{\r\n    color:white;\r\n    font-size: 1.5em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n}\r\n\r\n.background_opaque{\r\n    position: fixed;\r\n    margin-top: 455px;\r\n    width: 647px;\r\n    height:168px;\r\n    background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,1));\r\n}"
+module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    font-size: 1.3em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n    text-decoration: underline;\r\n}\r\n\r\n.positioning_description{\r\n    color:white;\r\n    font-size: 1.5em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n}\r\n\r\n.background_opaque{\r\n    position: fixed;\r\n    margin-top: 458px;\r\n    width: 647px;\r\n    height:168px;\r\n    background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,1));\r\n}"
 
 /***/ }),
 
@@ -339,7 +343,7 @@ module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    fo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<img src=\"/uploads/{{this.feed_data[0].image_path}}\" height=\"623\" width=\"647\" style=\"position:fixed; z-index: -10;\">\n\n<div class=\"background_opaque\">\n    <div class=\"positioning_title\">{{this.feed_data[0].title}}</div>\n    <div class=\"positioning_description\">{{this.feed_data[0].description}}</div>\n</div>\n\n"
+module.exports = "<img src=\"/uploads/{{this.feed_data[0].image_path}}\" height=\"627\" width=\"647\" style=\"position:fixed; z-index: -10;\">\n\n<div class=\"background_opaque\">\n    <div class=\"positioning_title\">{{this.feed_data[0].title}}</div>\n    <div class=\"positioning_description\">{{this.feed_data[0].description}}</div>\n</div>\n\n"
 
 /***/ }),
 
@@ -469,6 +473,114 @@ var MainbackComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], MainbackComponent);
     return MainbackComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.css":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.css ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    font-size: 1.3em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n    text-decoration: underline;\r\n}\r\n\r\n.positioning_description{\r\n    color:white;\r\n    font-size: 1.5em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 615px;\r\n}\r\n\r\n.background_opaque{\r\n    position: fixed;\r\n    margin-top: 458px;\r\n    width: 647px;\r\n    height:168px;\r\n    background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,1));\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<img src=\"{{this.current_tweet_image}}\" height=\"627\" width=\"647\" style=\"position:fixed; z-index: -10;\">\n\n<div class=\"background_opaque\">\n    <div class=\"positioning_title\">{{this.current_tweet.user.name}}</div>\n    <div class=\"positioning_description\">{{this.current_tweet.full_text}}</div>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: TwitterfeedMymediaComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TwitterfeedMymediaComponent", function() { return TwitterfeedMymediaComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_getdata_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/getdata.service */ "./src/app/services/getdata.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TwitterfeedMymediaComponent = /** @class */ (function () {
+    function TwitterfeedMymediaComponent(getdataService) {
+        var _this = this;
+        this.getdataService = getdataService;
+        this.tweets_data = [];
+        this.counter = 0;
+        setInterval(function () {
+            _this.change_data();
+        }, 7000);
+    }
+    TwitterfeedMymediaComponent.prototype.ngOnInit = function () {
+        this.initData();
+    };
+    TwitterfeedMymediaComponent.prototype.initData = function () {
+        var _this = this;
+        this.getdataService.getTweets().subscribe(function (data) {
+            console.log(data);
+            _this.tweets_data = data;
+            _this.change_data();
+        }, function (err) {
+            ////console.log(err);
+            return false;
+        });
+    };
+    TwitterfeedMymediaComponent.prototype.change_data = function () {
+        this.current_tweet = this.tweets_data[this.counter];
+        this.counter++;
+        if (this.counter < this.tweets_data.length) {
+            // console.log(this.counter)
+        }
+        else {
+            this.counter = 0;
+        }
+        this.current_tweet.full_text = this.current_tweet.full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
+        console.log(this.current_tweet);
+        if (typeof (this.current_tweet.entities.media) == "undefined") {
+            // console.log("no media")
+            // this.current_tweet_image = this.current_tweet.user.profile_image_url ;c
+            // console.log(this.getRandomArbitrary(1,7))
+            this.current_tweet_image = "assets/rfimages/" + this.getRandomArbitrary(1, 7) + ".jpg";
+        }
+        else {
+            this.current_tweet_image = this.current_tweet.entities.media[0].media_url;
+        }
+    };
+    TwitterfeedMymediaComponent.prototype.getRandomArbitrary = function (min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    };
+    TwitterfeedMymediaComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-twitterfeed-mymedia',
+            template: __webpack_require__(/*! ./twitterfeed-mymedia.component.html */ "./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.html"),
+            styles: [__webpack_require__(/*! ./twitterfeed-mymedia.component.css */ "./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_getdata_service__WEBPACK_IMPORTED_MODULE_1__["GetdataService"]])
+    ], TwitterfeedMymediaComponent);
+    return TwitterfeedMymediaComponent;
 }());
 
 
@@ -721,6 +833,10 @@ var GetdataService = /** @class */ (function () {
     }
     GetdataService.prototype.getFeeds = function () {
         return this.http.get('/fetchs/fetch_feeds')
+            .map(function (res) { return res.json(); });
+    };
+    GetdataService.prototype.getTweets = function () {
+        return this.http.get('/twitter/read_tweets')
             .map(function (res) { return res.json(); });
     };
     GetdataService = __decorate([

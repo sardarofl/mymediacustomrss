@@ -90,6 +90,9 @@ app.get('/twitterfeedmymedia', (req,res) =>{
   res.sendFile(path.join(__dirname, 'distcustomrssfeed/index.html'));
 });
 
+app.get('/templatersswithimage', (req,res) =>{
+  res.sendFile(path.join(__dirname, 'distcustomrssfeed/index.html'));
+});
 
 app.listen(port,  () => {
   console.log('Server started on port'+port);

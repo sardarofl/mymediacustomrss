@@ -109,12 +109,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_deletedata_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./services/deletedata.service */ "./src/app/services/deletedata.service.ts");
 /* harmony import */ var _services_adddata_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./services/adddata.service */ "./src/app/services/adddata.service.ts");
 /* harmony import */ var _components_twitterfeed_mymedia_twitterfeed_mymedia_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/twitterfeed-mymedia/twitterfeed-mymedia.component */ "./src/app/components/twitterfeed-mymedia/twitterfeed-mymedia.component.ts");
+/* harmony import */ var _components_templatersswithimages_templatersswithimages_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/templatersswithimages/templatersswithimages.component */ "./src/app/components/templatersswithimages/templatersswithimages.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -143,6 +145,7 @@ var appRoutes = [
     },
     { path: 'twitterfeedmymedia', component: _components_twitterfeed_mymedia_twitterfeed_mymedia_component__WEBPACK_IMPORTED_MODULE_16__["TwitterfeedMymediaComponent"] },
     { path: 'customrssfront', component: _components_customrssfront_customrssfront_component__WEBPACK_IMPORTED_MODULE_6__["CustomrssfrontComponent"] },
+    { path: 'templatersswithimage', component: _components_templatersswithimages_templatersswithimages_component__WEBPACK_IMPORTED_MODULE_17__["TemplatersswithimagesComponent"] },
     { path: '**', redirectTo: 'bemain' }
 ];
 var AppModule = /** @class */ (function () {
@@ -155,7 +158,8 @@ var AppModule = /** @class */ (function () {
                 _components_customrssback_customrssback_component__WEBPACK_IMPORTED_MODULE_4__["CustomrssbackComponent"],
                 _components_mainback_mainback_component__WEBPACK_IMPORTED_MODULE_5__["MainbackComponent"],
                 _components_customrssfront_customrssfront_component__WEBPACK_IMPORTED_MODULE_6__["CustomrssfrontComponent"],
-                _components_twitterfeed_mymedia_twitterfeed_mymedia_component__WEBPACK_IMPORTED_MODULE_16__["TwitterfeedMymediaComponent"]
+                _components_twitterfeed_mymedia_twitterfeed_mymedia_component__WEBPACK_IMPORTED_MODULE_16__["TwitterfeedMymediaComponent"],
+                _components_templatersswithimages_templatersswithimages_component__WEBPACK_IMPORTED_MODULE_17__["TemplatersswithimagesComponent"]
             ],
             imports: [
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(appRoutes),
@@ -203,7 +207,7 @@ module.exports = ".fullwidth{\r\n    width:100%;\r\n}"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n\n  <mat-card>\n      <form id = \"formNewFeed\" name =\"formNewFeed\" #feedData = \"ngForm\" >\n          <input type = \"text\" name =\"title\" id=\"title\" placeholder=\"Enter Title\" ngModel required><br>\n          <input type = \"text\" name =\"description\" id=\"description\" placeholder=\"Enter description\" ngModel required><br>\n          <br><br>\n          <label>Image file (max: 10mb)</label><br>\n          <input type = \"file\" data-max-size=\"10048\" id=\"image\" name=\"image\" ngModel required><br><br><br>\n          \n          <input type=\"button\" class=\"btn fullwidth green darken-1\" (click)=\"addFeed();feedData.reset()\" value=\"Add Feed\">\n           <!-- <input type = \"text\" name =\"attendants\" id=\"attendants\" placeholder=\"Enter attendant name\" ngModel><br> -->\n        </form>\n        \n  </mat-card>\n\n  <br><br>\n  \n  <mat-card>\n      <label>All Feeds</label>\n      <table class=\" responsive-table striped\">\n          <thead>\n            <tr>\n                <th>Title</th>\n                <th>Description</th>\n                <th>Image</th>\n                <!-- <th>Edit Event</th> -->\n                <th>Delete</th>\n            </tr>\n          </thead>\n  \n          <tbody>\n            <tr *ngFor=\"let item of feed_data\">\n              <td>{{item.title}}</td>\n              <td>{{item.description}}</td>\n               <td><img src='/uploads/{{item.image_path}}' height='42' width='62'></td>\n               <!-- <td> <a routerLink='/admin/editevents/{{item._id}}' class=\"waves-effect waves-light blue darken-3 btn\"><i  class=\"material-icons\">edit</i></a></td> -->\n              <td> <a (click)=\"deleteFeed(item._id)\" class=\"waves-effect waves-light red darken-3 btn\"><i  class=\"material-icons\">delete</i></a></td>\n  \n       \n            </tr>\n          </tbody>\n  </table>\n  </mat-card>\n"
+module.exports = "\n\n  <mat-card>\n      <form id = \"formNewFeed\" name =\"formNewFeed\" #feedData = \"ngForm\" >\n          <!-- <input type = \"text\" name =\"title\" id=\"title\" placeholder=\"Enter Title\" ngModel required><br> -->\n          <input type = \"text\" name =\"description\" id=\"description\" placeholder=\"Enter description\" ngModel required><br>\n          <br><br>\n          <label>Image file (max: 10mb)</label><br>\n          <input type = \"file\" data-max-size=\"10048\" id=\"image\" name=\"image\" ngModel required><br><br><br>\n          <label>Background file (max: 10mb)</label><br>\n          <input type = \"file\" data-max-size=\"10048\" id=\"background\" name=\"image\" ngModel required><br><br><br>\n          \n          \n          <input type=\"button\" class=\"btn fullwidth green darken-1\" (click)=\"addFeed();feedData.reset()\" value=\"Add Feed\">\n           <!-- <input type = \"text\" name =\"attendants\" id=\"attendants\" placeholder=\"Enter attendant name\" ngModel><br> -->\n        </form>\n        \n  </mat-card>\n\n  <br><br>\n  \n  <mat-card>\n      <label>All Feeds</label>\n      <table class=\" responsive-table striped\">\n          <thead>\n            <tr>\n                <th>Title</th>\n                <th>Description</th>\n                <th>Image</th>\n                <!-- <th>Edit Event</th> -->\n                <th>Delete</th>\n            </tr>\n          </thead>\n  \n          <tbody>\n            <tr *ngFor=\"let item of feed_data\">\n              <!-- <td>{{item.title}}</td> -->\n              <td>{{item.description}}</td>\n               <td><img src='/uploads/{{item.image_path}}' height='42' width='62'></td>\n               <td><img src='/uploads/{{item.background_path}}' height='42' width='62'></td>\n               <!-- <td> <a routerLink='/admin/editevents/{{item._id}}' class=\"waves-effect waves-light blue darken-3 btn\"><i  class=\"material-icons\">edit</i></a></td> -->\n              <td> <a (click)=\"deleteFeed(item._id)\" class=\"waves-effect waves-light red darken-3 btn\"><i  class=\"material-icons\">delete</i></a></td>\n  \n       \n            </tr>\n          </tbody>\n  </table>\n  </mat-card>\n"
 
 /***/ }),
 
@@ -283,15 +287,19 @@ var CustomrssbackComponent = /** @class */ (function () {
         var _this = this;
         this.submitted = true;
         var files = this.elem.nativeElement.querySelector('#image').files;
-        var title = this.elem.nativeElement.querySelector('#title').value;
+        var files_background = this.elem.nativeElement.querySelector('#background').files;
+        //let title = this.elem.nativeElement.querySelector('#title').value;
         var description = this.elem.nativeElement.querySelector('#description').value;
         var formData = new FormData();
+        console.log(files);
         var file = files[0];
-        console.log(title, description);
-        formData.append('title', title);
+        var file_background = files_background[0];
+        //console.log(title, description)
+        // formData.append('title',title);
         formData.append('description', description);
         console.log(file.name);
         formData.append('image', file, file.name);
+        formData.append('image', file_background, file_background.name);
         formData.append('using_default_logo', 'false');
         if (file.size < 10096865) {
             this.adddataService.addFeed(formData).subscribe(function (res) {
@@ -473,6 +481,97 @@ var MainbackComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], MainbackComponent);
     return MainbackComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/templatersswithimages/templatersswithimages.component.css":
+/*!**************************************************************************************!*\
+  !*** ./src/app/components/templatersswithimages/templatersswithimages.component.css ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".positioning_title{\r\n    color:rgb(211, 211, 211);\r\n    font-size: 3.3em;\r\n    margin-left:15px;\r\n    margin-top:10px;\r\n    max-width: 1273px;\r\n    text-decoration: underline;\r\n}\r\n\r\n.positioning_description{\r\n    color: white;\r\n    font-size: 3.5em;\r\n    margin-left: 15px;\r\n    margin-top: 200px;\r\n    max-width: 850px;\r\n}\r\n\r\n.rotate { /* IE 9 */\r\n    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */\r\n    transform: rotate(90deg);\r\n    margin-top: 88px;\r\n  }\r\n\r\n.background_opaque{\r\n    position: fixed;\r\n    margin-top:-20px;\r\n    width: 1273px;\r\n    height:845px;\r\n    background-color:rgba(0, 0, 0, 0.5);\r\n}\r\n\r\n.rotate90 {\r\n    -webkit-transform: rotate(90deg);\r\n    transform: rotate(90deg);\r\n  }\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/templatersswithimages/templatersswithimages.component.html":
+/*!***************************************************************************************!*\
+  !*** ./src/app/components/templatersswithimages/templatersswithimages.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<img src=\"/uploads/{{this.feed_data[0].background_path}}\" height=\"845\" width=\"1273\" style=\"position:fixed; z-index: -10;\">\n\n\n<div style=\"max-width:316px; max-height:450px;\nposition: fixed;\nmargin-left: 902px;\nmargin-top: 198px;\nz-index: 10;\"><img id=\"image\" src=\"/uploads/{{this.feed_data[0].image_path}}\"  style=\"max-height:100%; max-width:100%;\"></div>\n\n<div class=\"background_opaque\">\n\n    <div class=\"positioning_description\">{{this.feed_data[0].description}}</div>\n</div>\n\n<!-- 316 450 -->"
+
+/***/ }),
+
+/***/ "./src/app/components/templatersswithimages/templatersswithimages.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/components/templatersswithimages/templatersswithimages.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: TemplatersswithimagesComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TemplatersswithimagesComponent", function() { return TemplatersswithimagesComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_getdata_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/getdata.service */ "./src/app/services/getdata.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TemplatersswithimagesComponent = /** @class */ (function () {
+    function TemplatersswithimagesComponent(getdataService) {
+        var _this = this;
+        this.getdataService = getdataService;
+        this.feed_data = [];
+        this.counter = 0;
+        setInterval(function () {
+            _this.refreshData();
+        }, 7000);
+    }
+    TemplatersswithimagesComponent.prototype.ngOnInit = function () {
+        this.refreshData();
+    };
+    TemplatersswithimagesComponent.prototype.refreshData = function () {
+        var _this = this;
+        this.getdataService.getFeeds().subscribe(function (data) {
+            console.log(data);
+            _this.feed_data = data;
+            if (_this.counter < data.length) {
+                console.log(_this.counter);
+                _this.feed_data[0] = data[_this.counter];
+                _this.counter++;
+            }
+            else {
+                _this.counter = 0;
+            }
+        }, function (err) {
+            ////console.log(err);
+            return false;
+        });
+    };
+    TemplatersswithimagesComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-templatersswithimages',
+            template: __webpack_require__(/*! ./templatersswithimages.component.html */ "./src/app/components/templatersswithimages/templatersswithimages.component.html"),
+            styles: [__webpack_require__(/*! ./templatersswithimages.component.css */ "./src/app/components/templatersswithimages/templatersswithimages.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_getdata_service__WEBPACK_IMPORTED_MODULE_1__["GetdataService"]])
+    ], TemplatersswithimagesComponent);
+    return TemplatersswithimagesComponent;
 }());
 
 

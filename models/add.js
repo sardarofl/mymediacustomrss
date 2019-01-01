@@ -26,20 +26,22 @@ var storage =   multer.diskStorage({
 
 
 var upload = multer({ storage : storage}).single('image');
-// var multiple_upload = multer({ storage : storage}).array('image');
+var multiple_upload = multer({ storage : storage}).array('image');
 
 //adding items
 
 const Add_Items={
   addFeed:function(req,res, callback){
-    upload(req,res,function(err) {
+    multiple_upload(req,res,function(err) {
         console.log(req);
         //console.log("Adding Room");
     let newFeed = new Feed_schema({
       title:req.body.title,
       description:req.body.description,
-      image:req.file.originalname,
-      image_path:req.file.filename,
+      image:req.files[0].originalname,
+      image_path:req.files[0].filename,
+      background:req.files[1].originalname,
+      background_path:req.files[1].filename
     });
 
       newFeed.save( callback, function (err, docs) {

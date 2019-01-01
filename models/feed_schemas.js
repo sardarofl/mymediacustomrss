@@ -13,6 +13,12 @@ const FeedSchema = mongoose.Schema({
   },
   image_path:{
     type:String
+  },
+  background:{
+    type:String
+  },
+  background_path:{
+    type:String
   }
 });
 
